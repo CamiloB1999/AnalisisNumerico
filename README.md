@@ -1,2 +1,2 @@
 # JuanCarlosSuarezMotta
-Repositorio empleado para la materia de análisis de algoritmos PUJ
+Repositorio empleado para la materia de análisis numérico PUJ
