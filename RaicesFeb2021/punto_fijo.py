@@ -65,7 +65,7 @@ if __name__ == "__main__":
         fig = figure()
         x_vals = list(range(len(y_vals)))
         fig.line(x_vals, y_vals, line_width=2)
-        #show(fig)
+        show(fig)
 
     #Ecuación 2
     g = lambda x: 1/(np.sin(x))
@@ -75,7 +75,7 @@ if __name__ == "__main__":
         fig = figure()
         x_vals = list(range(len(y_vals)))
         fig.line(x_vals, y_vals, line_width=2)
-        #show(fig)
+        show(fig)
 
     #Ecuación 3
     g = lambda x: ((2*x**2) - (4/3*x) + (8/27))**(1/3)
@@ -85,7 +85,7 @@ if __name__ == "__main__":
         fig = figure()
         x_vals = list(range(len(y_vals)))
         fig.line(x_vals, y_vals, line_width=2)
-        #show(fig)
+        show(fig)
 
     #Ecuación 4
     e = math.e
@@ -106,4 +106,4 @@ if __name__ == "__main__":
         fig = figure()
         x_vals = list(range(len(y_vals)))
         fig.line(x_vals, y_vals, line_width=2)
-        #show(fig)
+        show(fig)

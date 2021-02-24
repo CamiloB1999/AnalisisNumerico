@@ -21,35 +21,47 @@ def cuatro(x):
 def cinco(x): 
     return (2*x + 5)**(1/3)
 
-def steffensen(tol,x0,f, grafica): 
+def steffensen(tol,x0,f, grafica, num_eq): 
+    errores = []
     y_vals = []
     y_vals.append(x0)
     x1 = f(x0)
+    errores.append(abs(x1-x0))
     y_vals.append(x1)
     x2 = f(x1)
+    errores.append(abs(x2-x1))
     y_vals.append(x2)
     x3 = x0 - ((x1 - x0)**2)/(x2 - 2*x1 + x0)
+    errores.append(abs(x3-x2))
     y_vals.append(x3)
     iterador = 3
     if(x3 != 0):
         while abs((x3-x0)/x3) > tol: 
             x0 = x3
             x1 = f(x0)
+            errores.append(abs(x1-x0))
             y_vals.append(x1)
             x2 = f(x1)
+            errores.append(abs(x2-x1))
             y_vals.append(x2)
             if  ((x2 - 2*x1 + x0) != 0): 
                 x3 = x0 - ((x1 - x0)**2)/(x2 - 2*x1 + x0) 
+                errores.append(abs(x3-x2))
                 y_vals.append(x3)
             iterador += 3
             if x3 == 0: 
                 break
     x_vals = list(range(len(y_vals)))
+    x_errores = list(range(len(errores)))
     output_file(grafica + f"-{tol}.html")
+    output_file(f'erroresSteffensen{num_eq}-{tol}.html')
     fig = figure()
+    fig2 = figure()
     fig.line(x_vals, y_vals, line_width=2)
+    fig2.line(x_errores, errores, line_width=2)
     if  x3 < 14:
         show(fig)
+        show(fig2)
 
     resultado = []
     resultado.append(iterador)
@@ -63,27 +75,27 @@ if __name__ == "__main__":
     x = 0.7
     
     for tol in tols:  
-        retorno = steffensen(tol, x, uno, "steffensen1")
+        retorno = steffensen(tol, x, uno, "steffensen1",1)
         iteraciones = retorno[0]
         raiz = retorno[1]
         print(f'En {iteraciones} iteraciones y tolerancia de {tol} se obtuvieron las raices {Decimal(raiz)} y {-1*Decimal(raiz)}')
     for tol in tols:  
-        retorno = steffensen(tol, x, dos, "steffensen2")
+        retorno = steffensen(tol, x, dos, "steffensen2",2)
         iteraciones = retorno[0]
         raiz = retorno[1]
         print(f'En {iteraciones} iteraciones y tolerancia de {tol} se obtuvieron las raices {Decimal(raiz)}')
     for tol in tols:  
-        retorno = steffensen(tol, x, tres, "steffensen3")
+        retorno = steffensen(tol, x, tres, "steffensen3",3)
         iteraciones = retorno[0]
         raiz = retorno[1]
         print(f'En {iteraciones} iteraciones y tolerancia de {tol} se obtuvieron las raices {Decimal(raiz)}')
     for tol in tols:  
-        retorno = steffensen(tol, x, cuatro, "steffensen4")
+        retorno = steffensen(tol, x, cuatro, "steffensen4",4)
         iteraciones = retorno[0]
         raiz = retorno[1]
         print(f'En {iteraciones} iteraciones y tolerancia de {tol} se obtuvieron las raices {raiz}')
     for tol in tols:  
-        retorno = steffensen(tol, x, cinco, "steffensen5")
+        retorno = steffensen(tol, x, cinco, "steffensen5",5)
         iteraciones = retorno[0]
         raiz = retorno[1]
         print(f'En {iteraciones} iteraciones y tolerancia de {tol} se obtuvieron las raices {Decimal(raiz)}')
