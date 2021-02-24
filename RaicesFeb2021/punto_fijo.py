@@ -74,7 +74,7 @@ if __name__ == "__main__":
         fig = figure()
         x_vals = list(range(len(y_vals)))
         fig.line(x_vals, y_vals, line_width=2)
-        #show(fig)
+        show(fig)
 
     #Ecuación 4
     e = math.e
@@ -85,7 +85,7 @@ if __name__ == "__main__":
         fig = figure()
         x_vals = list(range(len(y_vals)))
         fig.line(x_vals, y_vals, line_width=2)
-        show(fig)
+        #show(fig)
     
     #Ecuación 5
     g = lambda x: (2*x + 5)**(1/3)
