@@ -48,7 +48,8 @@ def steffensen(tol,x0,f, grafica):
     output_file(grafica + f"-{tol}.html")
     fig = figure()
     fig.line(x_vals, y_vals, line_width=2)
-    show(fig)
+    if  x3 < 14:
+        show(fig)
 
     resultado = []
     resultado.append(iterador)
