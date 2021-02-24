@@ -50,7 +50,7 @@ def  bisection(f, x0, x1, tol,grafica, num_eq):
     output_file(grafica + f"-{tol}.html")
     fig = figure()
     fig.line(x_vals, y_vals, line_width=2)
-    #show(fig)
+    show(fig)
 
     x_errores = list(range(len(errores)))
     output_file(f'erroresBisection{num_eq}-{tol}.html')
