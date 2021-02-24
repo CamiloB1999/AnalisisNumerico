@@ -52,15 +52,15 @@ def steffensen(tol,x0,f, grafica, num_eq):
             if x3 == 0: 
                 break
     x_vals = list(range(len(y_vals)))
-    x_errores = list(range(len(errores)))
     output_file(grafica + f"-{tol}.html")
-    output_file(f'erroresSteffensen{num_eq}-{tol}.html')
     fig = figure()
-    fig2 = figure()
     fig.line(x_vals, y_vals, line_width=2)
-    fig2.line(x_errores, errores, line_width=2)
     if  x3 < 14:
         show(fig)
+        x_errores = list(range(len(errores)))
+        output_file(f'erroresSteffensen{num_eq}-{tol}.html')
+        fig2 = figure()
+        fig2.line(x_errores, errores, line_width=2)
         show(fig2)
 
     resultado = []
