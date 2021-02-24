@@ -39,7 +39,7 @@ def puntoFijo(x, error_permitido, g, iters, num_eq):
     
     output_file(f"errores_puntoFijo{num_eq}- {error_permitido}.html")
     fig = figure()
-    x_errores = list(range(len(y_vals)))
+    x_errores = list(range(len(y_vals)-1))
     fig.line(x_errores, errores, line_width=2)
 
     if x > 0.7 and x < 0.75:
